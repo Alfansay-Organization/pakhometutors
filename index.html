@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pak Home Tutors | Quality Education at Your Doorstep</title>
-    <!-- Simple embedded styling to make the site look modern -->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,94 +11,125 @@
             margin: 0;
             padding: 0;
             color: #333;
+            background-color: #f9f9f9;
         }
         header {
             background-color: #0d5c3a;
             color: white;
-            padding: 2rem;
+            padding: 2rem 1rem;
             text-align: center;
         }
+        header img {
+            max-height: 90px;
+            width: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
         main {
-            padding: 2rem;
+            padding: 2rem 1rem;
             max-width: 800px;
             margin: auto;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .banner-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            object-fit: cover;
         }
         .services-list {
             list-style-type: square;
+            padding-left: 20px;
         }
         .cta-button {
             display: inline-block;
             background-color: #0d5c3a;
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             text-decoration: none;
             border-radius: 5px;
+            font-weight: bold;
             margin-top: 15px;
+        }
+        .cta-button:hover {
+            background-color: #094229;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 12px 20px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            color: white;
         }
         footer {
             text-align: center;
-            padding: 1rem;
-            background-color: #f4f4f4;
+            padding: 1.5rem;
+            background-color: #222222;
+            color: #ffffff;
             margin-top: 2rem;
         }
-        .whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25d366;
-    color: white;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 12px 20px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    text-decoration: none;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.whatsapp-float:hover {
-    background-color: #128c7e;
-    color: white;
-}
     </style>
 </head>
 <body>
 
     <header>
+        <!-- Logo Image -->
+        <img src="images/logo.png" alt="Pak Home Tutors Logo">
         <h1>Pak Home Tutors</h1>
         <p>Connecting qualified tutors with students across Pakistan</p>
     </header>
 
     <main>
-        <h2>Welcome to Pak Home Tutors</h2>
-        <p>We provide experienced and verified home tutors for all grades, subjects, and educational boards.</p>
+        <!-- Banner Image -->
+        <img src="images/Youtube banner PHT.png" alt="Pak Home Tutors Banner" class="banner-img">
 
-        <h3>Our Services</h3>
+        <h2>Welcome to Pak Home Tutors</h2>
+        <p>We provide experienced and verified home tutors for all grades, subjects, and educational boards across Pakistan.</p>
+
+        <h3>Our Key Services</h3>
         <ul class="services-list">
             <li>Primary & Secondary School Home Tutoring</li>
-            <li>O/A Levels & Matric/FSc Test Preparation</li>
+            <li>O/A Levels, Matric & FSc Test Preparation</li>
             <li>Quran & Islamic Studies Tutors</li>
-            <li>Online Interactive Classes</li>
+            <li>Online Interactive Classes Globally</li>
         </ul>
 
         <h3>Get in Touch</h3>
-        <p>Looking for a qualified tutor or want to register as a teacher?</p>
-        <a href="mailto:info@pakhometutors.com" class="cta-button">Contact Us Today</a>
+        <p>Looking for a qualified tutor or want to register as a teacher? Reach out to us today.</p>
+        <a href="mailto:info@pakhometutors.com" class="cta-button">Email Us</a>
     </main>
 
     <footer>
         <p>&copy; 2026 Pak Home Tutors. All rights reserved.</p>
     </footer>
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/923119696807?text=Hello!%20I%20am%20interested%20in%20Pak%20Home%20Tutors." 
-   class="whatsapp-float" 
-   target="_blank" 
-   rel="noopener noreferrer">
-    💬 Chat on WhatsApp
-</a>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923119696807?text=Hello!%20I%20am%20interested%20in%20Pak%20Home%20Tutors." 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer">
+        💬 Chat on WhatsApp
+    </a>
+
 </body>
 </html>

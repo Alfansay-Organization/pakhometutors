@@ -1,0 +1,21 @@
+<form id="teacherForm">
+  <input type="text" id="fullName" placeholder="Full Name" required>
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="text" id="city" placeholder="City" required>
+  <input type="number" id="experience" placeholder="Years of Experience" required>
+  
+  <select id="teachingMode" required>
+    <option value="">-- Select Teaching Mode --</option>
+    <option value="home">Home</option>
+    <option value="online">Online</option>
+    <option value="both">Both</option>
+  </select>
+  
+  <label>Profile Photo:</label>
+  <input type="file" id="photoFile" accept="image/*" required>
+  
+  <label>Verification Document (PDF):</label>
+  <input type="file" id="docFile" accept="application/pdf" required>
+  
+  <button type="submit">Submit Profile</button>
+</form>

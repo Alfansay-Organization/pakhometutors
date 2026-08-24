@@ -15,8 +15,6 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-storage.js";
 
 
-/* Replace all YOUR_... values with the values
-   from Firebase Console → Project settings → Your apps */
 const firebaseConfig = {
   apiKey: "YOUR_API_KEY",
   authDomain: "YOUR_AUTH_DOMAIN",

@@ -14,21 +14,19 @@ import {
   getDownloadURL
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-storage.js";
 
-
+// Your custom Firebase project configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
+  apiKey: "YOUR_API_KEY", // <-- Replace this with your API Key
+  authDomain: "pakhometutors-database.firebaseapp.com",
   projectId: "pakhometutors-database",
-  storageBucket: "YOUR_STORAGE_BUCKET",
+  storageBucket: "pakhometutors-database.firebasestorage.app",
   messagingSenderId: "74148069004",
-  appId: "YOUR_APP_ID"
+  appId: "YOUR_APP_ID" // <-- Replace this with your App ID
 };
-
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
-
 
 document.getElementById("teacherForm").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -44,6 +42,7 @@ document.getElementById("teacherForm").addEventListener("submit", async (e) => {
   try {
     const timestamp = Date.now();
 
+    // 1. Create file references in Cloud Storage
     const photoRef = ref(
       storage,
       `teachers/photos/${timestamp}_${photoFile.name}`
@@ -54,14 +53,17 @@ document.getElementById("teacherForm").addEventListener("submit", async (e) => {
       `teachers/documents/${timestamp}_${docFile.name}`
     );
 
+    // 2. Upload files in parallel
     const [photoSnapshot, docSnapshot] = await Promise.all([
       uploadBytes(photoRef, photoFile),
       uploadBytes(docRef, docFile)
     ]);
 
+    // 3. Get secure download URLs
     const photoUrl = await getDownloadURL(photoSnapshot.ref);
     const docUrl = await getDownloadURL(docSnapshot.ref);
 
+    // 4. Create the teacher profile document
     const teacherData = {
       fullName: document.getElementById("fullName").value.trim(),
       email: document.getElementById("email").value.trim(),
@@ -77,6 +79,7 @@ document.getElementById("teacherForm").addEventListener("submit", async (e) => {
       createdAt: serverTimestamp()
     };
 
+    // 5. Store metadata in Cloud Firestore
     await addDoc(collection(db, "teachers"), teacherData);
 
     alert("Your application has been submitted successfully!");

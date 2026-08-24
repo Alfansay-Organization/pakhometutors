@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Primary Meta Tags -->
@@ -16,8 +16,11 @@
     <meta property="og:title" content="Pak Home Tutors | Quality Education at Your Doorstep">
     <meta property="og:description" content="Connecting qualified tutors with students across Pakistan. Experienced home & online teachers available.">
     <meta property="og:image" content="https://pakhometutors.com/images/logo.png">
-<meta name="google-site-verification" content="LpGSqdd6e6z2z5iLHB1ztV5mWE2ISjfbMgieDqkuOU4">
-   <style>
+
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="LpGSqdd6e6z2z5iLHB1ztV5mWE2ISjfbMgieDqkuOU4">
+
+    <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -55,6 +58,63 @@
             margin-bottom: 20px;
             object-fit: cover;
         }
+
+        /* Search Section Styles */
+        .search-box {
+            background-color: #f0f7f4;
+            border: 2px solid #0d5c3a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        .search-box h3 {
+            margin-top: 0;
+            color: #0d5c3a;
+            text-align: center;
+        }
+        .search-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        @media (max-width: 600px) {
+            .search-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .search-button {
+            grid-column: 1 / -1;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        .search-button:hover {
+            background-color: #128c7e;
+        }
+
         .services-list {
             list-style-type: square;
             padding-left: 20px;
@@ -116,6 +176,48 @@
         <!-- Banner Image -->
         <img src="images/Youtube banner PHT.png" alt="Pak Home Tutors Banner" class="banner-img">
 
+        <!-- Interactive Tutor Search Box -->
+        <div class="search-box">
+            <h3>🔍 Find a Tutor Near You</h3>
+            <div class="search-grid">
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <select id="city">
+                        <option value="Lahore">Lahore</option>
+                        <option value="Islamabad">Islamabad</option>
+                        <option value="Rawalpindi">Rawalpindi</option>
+                        <option value="Karachi">Karachi</option>
+                        <option value="Faisalabad">Faisalabad</option>
+                        <option value="Multan">Multan</option>
+                        <option value="Peshawar">Peshawar</option>
+                        <option value="Online Class (Global)">Online / Worldwide</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="area">Area / Sector</label>
+                    <input type="text" id="area" placeholder="e.g. DHA Phase 5, Johar Town, F-10">
+                </div>
+                <div class="form-group">
+                    <label for="grade">Grade / Class</label>
+                    <select id="grade">
+                        <option value="Primary (Class 1-5)">Primary (Class 1-5)</option>
+                        <option value="Middle (Class 6-8)">Middle (Class 6-8)</option>
+                        <option value="Matric">Matric</option>
+                        <option value="FSc / Intermediate">FSc / Intermediate</option>
+                        <option value="O Level">O Level</option>
+                        <option value="A Level">A Level</option>
+                        <option value="Quranic Studies">Quranic Studies</option>
+                        <option value="Entry Test Prep (MDCAT/ECAT)">Entry Test Prep (MDCAT/ECAT)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject(s)</label>
+                    <input type="text" id="subject" placeholder="e.g. Mathematics, Physics, Chemistry">
+                </div>
+                <button class="search-button" onclick="searchTutor()">Find Tutor via WhatsApp 💬</button>
+            </div>
+        </div>
+
         <h2>Welcome to Pak Home Tutors</h2>
         <p>We provide experienced and verified home tutors for all grades, subjects, and educational boards across Pakistan.</p>
 
@@ -143,6 +245,28 @@
        rel="noopener noreferrer">
         💬 Chat on WhatsApp
     </a>
+
+    <!-- JavaScript Function for Search Redirect -->
+    <script>
+        function searchTutor() {
+            var city = document.getElementById("city").value;
+            var area = document.getElementById("area").value.trim();
+            var grade = document.getElementById("grade").value;
+            var subject = document.getElementById("subject").value.trim();
+
+            var areaText = area ? area : "Not specified";
+            var subjectText = subject ? subject : "General Subjects";
+
+            var message = "Hello Pak Home Tutors! I am looking for a tutor.%0A%0A" +
+                          "📍 *City:* " + encodeURIComponent(city) + "%0A" +
+                          "🏠 *Area:* " + encodeURIComponent(areaText) + "%0A" +
+                          "📚 *Grade:* " + encodeURIComponent(grade) + "%0A" +
+                          "📖 *Subject(s):* " + encodeURIComponent(subjectText);
+
+            var whatsappUrl = "https://wa.me/923119696807?text=" + message;
+            window.open(whatsappUrl, "_blank");
+        }
+    </script>
 
 </body>
 </html>

@@ -16,12 +16,9 @@ import {
 
 // Your custom Firebase project configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY", // <-- Replace this with your API Key
+  apiKey: "AIzaSyB1RKueXO0egUDA_JaPtK3AL9Wsg7Cu8tQ",
   authDomain: "pakhometutors-database.firebaseapp.com",
   projectId: "pakhometutors-database",
-  storageBucket: "pakhometutors-database.firebasestorage.app",
-  messagingSenderId: "74148069004",
-  appId: "YOUR_APP_ID" // <-- Replace this with your App ID
 };
 
 const app = initializeApp(firebaseConfig);

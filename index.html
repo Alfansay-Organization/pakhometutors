@@ -119,7 +119,7 @@
         }
         .search-button {
             grid-column: 1 / -1;
-            background-color: #0d5c3a;
+            background-color: #25d366;
             color: white;
             border: none;
             padding: 12px;
@@ -132,21 +132,28 @@
             transition: background 0.3s ease;
         }
         .search-button:hover {
+            background-color: #128c7e;
+        }
+        .db-search-btn {
+            background-color: #0d5c3a;
+        }
+        .db-search-btn:hover {
             background-color: #094229;
         }
 
-        /* Tutor Profiles Grid */
+        /* Tutor Cards Styling */
         .tutor-results-title {
             color: #0d5c3a;
             border-bottom: 2px solid #0d5c3a;
             padding-bottom: 5px;
-            margin-top: 30px;
+            margin-top: 35px;
         }
         .tutors-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
             margin-top: 15px;
+            margin-bottom: 30px;
         }
         @media (max-width: 650px) {
             .tutors-grid {
@@ -255,14 +262,13 @@
         <!-- Banner Image -->
         <img src="images/Youtube banner PHT.png" alt="Pak Home Tutors Banner" class="banner-img">
 
-        <!-- Interactive Tutor Search Box -->
+        <!-- 1. WhatsApp Direct Inquiry Form -->
         <div class="search-box">
-            <h3>🔍 Find a Verified Tutor</h3>
+            <h3>💬 Send Quick Requirement via WhatsApp</h3>
             <div class="search-grid">
                 <div class="form-group">
                     <label for="city">City</label>
                     <select id="city">
-                        <option value="">All Cities</option>
                         <option value="Lahore">Lahore</option>
                         <option value="Islamabad">Islamabad</option>
                         <option value="Rawalpindi">Rawalpindi</option>
@@ -275,22 +281,56 @@
                 </div>
                 <div class="form-group">
                     <label for="area">Area / Sector</label>
-                    <input type="text" id="area" placeholder="e.g. DHA, Johar Town, F-10">
+                    <input type="text" id="area" placeholder="e.g. DHA Phase 5, Johar Town, F-10">
                 </div>
                 <div class="form-group">
                     <label for="grade">Grade / Class</label>
-                    <input type="text" id="grade" placeholder="e.g. O Level, Matric, Class 5">
+                    <select id="grade">
+                        <option value="Primary (Class 1-5)">Primary (Class 1-5)</option>
+                        <option value="Middle (Class 6-8)">Middle (Class 6-8)</option>
+                        <option value="Matric">Matric</option>
+                        <option value="FSc / Intermediate">FSc / Intermediate</option>
+                        <option value="O Level">O Level</option>
+                        <option value="A Level">A Level</option>
+                        <option value="Quranic Studies">Quranic Studies</option>
+                        <option value="Entry Test Prep (MDCAT/ECAT)">Entry Test Prep (MDCAT/ECAT)</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="subject">Subject(s)</label>
-                    <input type="text" id="subject" placeholder="e.g. Math, Physics, Chemistry">
+                    <input type="text" id="subject" placeholder="e.g. Mathematics, Physics, Chemistry">
                 </div>
-                <button class="search-button" onclick="fetchTutors()">Search Tutors 🔎</button>
+                <button class="search-button" onclick="searchTutor()">Find Tutor via WhatsApp 💬</button>
             </div>
         </div>
 
-        <!-- Tutor Search Results Section -->
-        <h3 class="tutor-results-title">Available Tutors</h3>
+        <!-- 2. Database Search & Live Profiles -->
+        <h3 class="tutor-results-title">📋 Browse Registered Database Profiles</h3>
+        <p>Or search below to see tutors currently registered in our database:</p>
+        
+        <div class="search-box" style="background-color: #ffffff; border-color: #ccc;">
+            <div class="search-grid">
+                <div class="form-group">
+                    <label for="dbCity">Filter by City</label>
+                    <select id="dbCity" onchange="fetchTutors()">
+                        <option value="">All Cities</option>
+                        <option value="Lahore">Lahore</option>
+                        <option value="Islamabad">Islamabad</option>
+                        <option value="Rawalpindi">Rawalpindi</option>
+                        <option value="Karachi">Karachi</option>
+                        <option value="Faisalabad">Faisalabad</option>
+                        <option value="Multan">Multan</option>
+                        <option value="Peshawar">Peshawar</option>
+                        <option value="Online Class (Global)">Online / Worldwide</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dbKeyword">Keyword Search (Area / Subject)</label>
+                    <input type="text" id="dbKeyword" placeholder="e.g. Johar Town or Physics" onkeyup="fetchTutors()">
+                </div>
+            </div>
+        </div>
+
         <div id="tutorsGrid" class="tutors-grid">
             <p style="grid-column: 1 / -1; text-align: center;">Loading registered tutors...</p>
         </div>
@@ -323,50 +363,60 @@
         💬 Chat on WhatsApp
     </a>
 
+    <!-- JavaScript Functions -->
     <script>
-        // Supabase Configuration
+        // 1. WhatsApp Direct Lead Handler
+        function searchTutor() {
+            var city = document.getElementById("city").value;
+            var area = document.getElementById("area").value.trim();
+            var grade = document.getElementById("grade").value;
+            var subject = document.getElementById("subject").value.trim();
+
+            var areaText = area ? area : "Not specified";
+            var subjectText = subject ? subject : "General Subjects";
+
+            var message = "Hello Pak Home Tutors! I am looking for a tutor.%0A%0A" +
+                          "📍 *City:* " + encodeURIComponent(city) + "%0A" +
+                          "🏠 *Area:* " + encodeURIComponent(areaText) + "%0A" +
+                          "📚 *Grade:* " + encodeURIComponent(grade) + "%0A" +
+                          "📖 *Subject(s):* " + encodeURIComponent(subjectText);
+
+            var whatsappUrl = "https://wa.me/923119696807?text=" + message;
+            window.open(whatsappUrl, "_blank");
+        }
+
+        // 2. Supabase Database Setup & Tutor Card Fetcher
         const SUPABASE_URL = "https://udrdidkrwzgaqvuazzxk.supabase.co";
         const SUPABASE_ANON_KEY = "sb_publishable_W1l5opFTWUM41av16eoZWQ_Wdq76W1j";
         const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Fetch tutors on page load
         document.addEventListener("DOMContentLoaded", () => {
             fetchTutors();
         });
 
         async function fetchTutors() {
             const grid = document.getElementById("tutorsGrid");
-            grid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center;">Searching database...</p>';
-
-            const city = document.getElementById("city").value;
-            const area = document.getElementById("area").value.trim();
-            const grade = document.getElementById("grade").value.trim();
-            const subject = document.getElementById("subject").value.trim();
+            const city = document.getElementById("dbCity").value;
+            const keyword = document.getElementById("dbKeyword").value.trim();
 
             let query = supabaseClient.from('tutors').select('*').eq('is_verified', true);
 
             if (city) {
                 query = query.eq('city', city);
             }
-            if (area) {
-                query = query.ilike('area', `%${area}%`);
-            }
-            if (grade) {
-                query = query.ilike('grades', `%${grade}%`);
-            }
-            if (subject) {
-                query = query.ilike('subjects', `%${subject}%`);
+            if (keyword) {
+                query = query.or(`area.ilike.%${keyword}%,subjects.ilike.%${keyword}%,grades.ilike.%${keyword}%`);
             }
 
             const { data: tutors, error } = await query;
 
             if (error) {
-                grid.innerHTML = `<p style="color:red; grid-column: 1 / -1; text-align:center;">Error fetching tutors: ${error.message}</p>`;
+                grid.innerHTML = `<p style="color:red; grid-column: 1 / -1; text-align:center;">Error fetching database: ${error.message}</p>`;
                 return;
             }
 
             if (!tutors || tutors.length === 0) {
-                grid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center;">No tutors found matching your criteria. Try widening your search!</p>';
+                grid.innerHTML = '<p style="grid-column: 1 / -1; text-align: center;">No tutors found matching this criteria.</p>';
                 return;
             }
 
@@ -402,6 +452,5 @@
                 .replace(/'/g, "&#039;");
         }
     </script>
-
 </body>
 </html>

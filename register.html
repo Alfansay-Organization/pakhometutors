@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Registration | Pak Home Tutors</title>
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin: 0; padding: 20px; color: #333; }
+        .form-container { max-width: 600px; margin: auto; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); border-top: 5px solid #0d5c3a; }
+        h2 { color: #0d5c3a; text-align: center; margin-top: 0; }
+        .form-group { margin-bottom: 15px; }
+        label { font-weight: bold; display: block; margin-bottom: 5px; }
+        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; background: #0d5c3a; color: white; padding: 12px; border: none; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+        button:hover { background: #094229; }
+        #message { text-align: center; font-weight: bold; margin-top: 15px; }
+    </style>
+</head>
+<body>
 
+<div class="form-container">
+    <h2>Register as a Tutor</h2>
+    <form id="tutorForm">
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" required placeholder="e.g. Ali Raza">
+        </div>
+        <div class="form-group">
+            <label for="phone">WhatsApp / Phone Number</label>
+            <input type="text" id="phone" required placeholder="e.g. 03001234567">
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <select id="city">
+                <option value="Lahore">Lahore</option>
+                <option value="Islamabad">Islamabad</option>
+                <option value="Rawalpindi">Rawalpindi</option>
+                <option value="Karachi">Karachi</option>
+                <option value="Faisalabad">Faisalabad</option>
+                <option value="Multan">Multan</option>
+                <option value="Peshawar">Peshawar</option>
+                <option value="Online Class (Global)">Online / Worldwide</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="area">Area / Locality</label>
+            <input type="text" id="area" required placeholder="e.g. Johar Town / DHA Phase 5">
+        </div>
+        <div class="form-group">
+            <label for="grades">Grades / Classes Taught</label>
+            <input type="text" id="grades" required placeholder="e.g. O Level, A Level, Matric">
+        </div>
+        <div class="form-group">
+            <label for="subjects">Subjects Taught</label>
+            <input type="text" id="subjects" required placeholder="e.g. Mathematics, Physics">
+        </div>
+        <div class="form-group">
+            <label for="rate">Monthly Demanded Fee (PKR)</label>
+            <input type="text" id="rate" placeholder="e.g. 15,000 / month">
+        </div>
+        <div class="form-group">
+            <label for="bio">Qualification & Experience Summary</label>
+            <textarea id="bio" rows="4" placeholder="Mention your degree, university, and teaching experience..."></textarea>
+        </div>
+        <button type="submit">Submit Registration</button>
+    </form>
+    <div id="message"></div>
+</div>
+
+<script>
+    // Supabase Configuration
+    const SUPABASE_URL = "https://udrdidkrwzgaqvuazzxk.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_W1l5opFTWUM41av16eoZWQ_Wdq76W1j";
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    document.getElementById("tutorForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const msg = document.getElementById("message");
+        msg.style.color = "blue";
+        msg.innerText = "Submitting profile...";
+
+        const formData = {
+            full_name: document.getElementById("fullName").value.trim(),
+            phone_number: document.getElementById("phone").value.trim(),
+            city: document.getElementById("city").value,
+            area: document.getElementById("area").value.trim(),
+            grades: document.getElementById("grades").value.trim(),
+            subjects: document.getElementById("subjects").value.trim(),
+            hourly_rate: document.getElementById("rate").value.trim(),
+            bio: document.getElementById("bio").value.trim(),
+            is_verified: true
+        };
+
+        const { data, error } = await supabaseClient.from('tutors').insert([formData]);
+
+        if (error) {
+            msg.style.color = "red";
+            msg.innerText = "Error submitting: " + error.message;
+        } else {
+            msg.style.color = "green";
+            msg.innerText = "Success! Your profile has been registered.";
+            document.getElementById("tutorForm").reset();
+        }
+    });
+</script>
+
+</body>
+</html>

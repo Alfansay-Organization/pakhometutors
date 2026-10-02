@@ -114,7 +114,7 @@ nav a.active {
 main {
     max-width: 960px;
     margin: 0 auto;
-    padding: 0 14px 50px;
+    padding: 0 14px 30px;
 }
 
 /* Hero */
@@ -330,14 +330,81 @@ section li {
     border-color: var(--yellow);
 }
 
+/* ========== PRE-FOOTER SECTION (reusable on all pages) ========== */
+.pre-footer {
+    background: linear-gradient(180deg, #0a0a5c 0%, #06064a 100%);
+    border-top: 1px solid rgba(226, 190, 46, 0.2);
+    border-bottom: 1px solid rgba(226, 190, 46, 0.15);
+    padding: 40px 16px 36px;
+    margin-top: 20px;
+}
+
+.pre-footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pre-footer h2 {
+    color: var(--yellow);
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.pre-footer .pre-footer-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 22px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pre-footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 28px;
+}
+
+.pre-footer-grid a {
+    display: block;
+    background: rgba(13, 23, 255, 0.15);
+    border: 1px solid rgba(226, 190, 46, 0.25);
+    border-radius: 8px;
+    padding: 11px 12px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.pre-footer-grid a:hover {
+    background: rgba(13, 23, 255, 0.35);
+    border-color: var(--yellow);
+    transform: translateY(-2px);
+}
+
+.pre-footer-cta {
+    margin-top: 8px;
+}
+
+.pre-footer-cta p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+}
+
 /* Footer */
 footer {
     background: #000028;
     color: var(--text-muted);
     text-align: center;
     padding: 28px 16px 20px;
-    margin-top: 20px;
-    border-top: 1px solid rgba(226, 190, 46, 0.2);
+    margin-top: 0;
+    border-top: none;
 }
 
 .social-links {
@@ -425,6 +492,24 @@ footer .copyright {
         grid-template-columns: 1fr;
     }
 
+    .pre-footer {
+        padding: 30px 12px 28px;
+    }
+
+    .pre-footer h2 {
+        font-size: 1.2rem;
+    }
+
+    .pre-footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .pre-footer-grid a {
+        font-size: 0.85rem;
+        padding: 10px 8px;
+    }
+
     .whatsapp-float {
         bottom: 14px;
         right: 12px;
@@ -444,5 +529,9 @@ footer .copyright {
         border-radius: 50%;
         justify-content: center;
         padding: 0;
+    }
+
+    .pre-footer-grid {
+        grid-template-columns: 1fr 1fr;
     }
 }

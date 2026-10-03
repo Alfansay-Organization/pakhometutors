@@ -95,6 +95,11 @@
 </section>`;
 
   function inject() {
+    // Remove any existing hardcoded pre-footers to avoid duplicates
+    document.querySelectorAll('section.pre-footer').forEach(function (el) {
+      el.remove();
+    });
+
     var target = document.getElementById('pre-footer-placeholder');
     if (target) {
       target.outerHTML = html;

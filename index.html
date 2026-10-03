@@ -47,58 +47,148 @@
             min-height: 100vh;
         }
 
-        header {
+        /* ===== RESPONSIVE PRE-HEADER / NAV ===== */
+        .site-header {
             background: linear-gradient(160deg, #01004a 0%, #0a0a6e 50%, #01004a 100%);
-            color: white;
-            padding: 1.1rem 1rem 1.3rem;
-            text-align: center;
             border-bottom: 2px solid var(--yellow);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 200;
         }
-
-        .header-inner { max-width: 900px; margin: 0 auto; }
-
-        header img.logo {
-            max-height: 80px;
+        .site-header .header-bar {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0.65rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .site-header .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        .site-header .brand img.logo {
+            max-height: 52px;
             width: auto;
-            margin-bottom: 10px;
-            border-radius: 10px;
-            filter: drop-shadow(0 0 8px rgba(226, 190, 46, 0.4));
+            border-radius: 8px;
+            filter: drop-shadow(0 0 6px rgba(226, 190, 46, 0.4));
+            margin: 0;
         }
-
-        header h1 {
-            font-size: 1.7rem;
-            margin-bottom: 4px;
+        .site-header .brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .site-header .brand-text .name {
+            font-size: 1.15rem;
             font-weight: 700;
             color: #fff;
-            text-shadow: 0 0 12px rgba(13, 23, 255, 0.5);
         }
-
-        header .tagline {
-            font-size: 0.95rem;
+        .site-header .brand-text .tag {
+            font-size: 0.72rem;
             color: var(--yellow);
-            margin-bottom: 14px;
             font-weight: 500;
         }
 
-        nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
-
-        nav a {
+        .site-header .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        .site-header .nav-desktop a {
             color: #fff;
             text-decoration: none;
             font-weight: 600;
-            background: rgba(13, 23, 255, 0.35);
-            padding: 7px 20px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            border: 1px solid rgba(226, 190, 46, 0.4);
-            transition: all 0.25s ease;
+            background: rgba(13, 23, 255, 0.3);
+            padding: 7px 14px;
+            border-radius: 22px;
+            font-size: 0.88rem;
+            border: 1px solid rgba(226, 190, 46, 0.35);
+            transition: all 0.22s ease;
+            white-space: nowrap;
         }
-
-        nav a:hover, nav a.active {
+        .site-header .nav-desktop a:hover,
+        .site-header .nav-desktop a.active {
             background: var(--blue);
             border-color: var(--yellow);
-            box-shadow: 0 0 12px rgba(13, 23, 255, 0.5);
+            box-shadow: 0 0 10px rgba(13, 23, 255, 0.45);
+        }
+        .site-header .nav-desktop a.nav-wa {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            border-color: #25d366;
+        }
+        .site-header .nav-desktop a.nav-wa:hover {
+            background: #128c7e;
+            box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: rgba(13, 23, 255, 0.4);
+            border: 1px solid rgba(226, 190, 46, 0.4);
+            border-radius: 8px;
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+        .menu-toggle:hover { background: var(--blue); }
+        .menu-toggle[aria-expanded="true"] { background: var(--blue); border-color: var(--yellow); }
+
+        .nav-mobile {
+            display: none;
+            background: #06064a;
+            border-top: 1px solid rgba(226, 190, 46, 0.2);
+            padding: 10px 14px 14px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .nav-mobile.open { display: block; }
+        .nav-mobile a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 14px;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            border: 1px solid transparent;
+            font-size: 0.95rem;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .nav-mobile a:hover,
+        .nav-mobile a.active {
+            background: rgba(13, 23, 255, 0.4);
+            border-color: rgba(226, 190, 46, 0.4);
+        }
+        .nav-mobile a.nav-wa {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .site-header .nav-desktop { display: none; }
+            .menu-toggle { display: inline-flex; }
+            .site-header .brand-text .tag { display: none; }
+            .site-header .brand img.logo { max-height: 44px; }
+            .site-header .brand-text .name { font-size: 1.05rem; }
+        }
+        @media (min-width: 769px) {
+            .nav-mobile { display: none !important; }
         }
 
         main { max-width: 900px; margin: 0 auto; padding: 0 12px 40px; }
@@ -327,8 +417,6 @@
         .whatsapp-float:hover { background: #128c7e; transform: scale(1.04); color: white; }
 
         @media (max-width: 600px) {
-            header h1 { font-size: 1.4rem; }
-            header img.logo { max-height: 64px; }
             .search-grid { grid-template-columns: 1fr; }
             .cards-grid { grid-template-columns: 1fr; }
             .search-box { padding: 16px 12px; margin: 14px 0 22px; }
@@ -346,15 +434,34 @@
 </head>
 <body>
 
-    <header>
-        <div class="header-inner">
-            <img src="images/pht_logo.webp" alt="Pak Home Tutors Logo" class="logo">
-            <h1>Pak Home Tutors</h1>
-            <p class="tagline">Connecting qualified tutors with students across Pakistan</p>
-            <nav>
+    <header class="site-header">
+        <div class="header-bar">
+            <a href="index.html" class="brand">
+                <img src="images/pht_logo.webp" alt="Pak Home Tutors Logo" class="logo" width="120" height="52">
+                <span class="brand-text">
+                    <span class="name">Pak Home Tutors</span>
+                    <span class="tag">Home & Online Tutors across Pakistan</span>
+                </span>
+            </a>
+            <nav class="nav-desktop" aria-label="Main menu">
                 <a href="index.html" class="active">Home</a>
+                <a href="home-tutors-g9-islamabad.html">Islamabad</a>
+                <a href="dha-lahore.html">Lahore</a>
+                <a href="home-tutors-dha-islamabad.html">DHA Islamabad</a>
+                <a href="https://wa.me/923119696807?text=Hello%20Pak%20Home%20Tutors%2C%20I%20need%20a%20tutor" class="nav-wa" target="_blank" rel="noopener">WhatsApp</a>
             </nav>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
         </div>
+        <nav class="nav-mobile" id="mobileNav" aria-label="Mobile menu">
+            <a href="index.html" class="active">Home</a>
+            <a href="home-tutors-g9-islamabad.html">Islamabad Tutors</a>
+            <a href="dha-lahore.html">Lahore Tutors</a>
+            <a href="home-tutors-dha-islamabad.html">DHA Islamabad</a>
+            <a href="online-tutors-bahria-town-islamabad.html">Bahria Town</a>
+            <a href="https://wa.me/923119696807?text=Hello%20Pak%20Home%20Tutors%2C%20I%20need%20a%20tutor" class="nav-wa" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </nav>
     </header>
 
     <main>
@@ -485,6 +592,27 @@
             var whatsappUrl = "https://wa.me/923119696807?text=" + message;
             window.open(whatsappUrl, "_blank");
         }
+    </script>
+    <script>
+        (function() {
+            var btn = document.getElementById('menuToggle');
+            var nav = document.getElementById('mobileNav');
+            if (!btn || !nav) return;
+            btn.addEventListener('click', function() {
+                var open = nav.classList.toggle('open');
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+                btn.innerHTML = open ? '<i class="fas fa-times" aria-hidden="true"></i>' : '<i class="fas fa-bars" aria-hidden="true"></i>';
+            });
+            nav.querySelectorAll('a').forEach(function(a) {
+                a.addEventListener('click', function() {
+                    nav.classList.remove('open');
+                    btn.setAttribute('aria-expanded', 'false');
+                    btn.setAttribute('aria-label', 'Open menu');
+                    btn.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+                });
+            });
+        })();
     </script>
 </body>
 </html>

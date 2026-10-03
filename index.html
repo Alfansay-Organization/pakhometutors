@@ -1,1 +1,490 @@
-PLACEHOLDER_WILL_BE_REPLACED
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Pak Home Tutors | Verified Home & Online Tutors in Pakistan</title>
+    <meta name="title" content="Pak Home Tutors | Verified Home & Online Tutors in Pakistan">
+    <meta name="description" content="Find qualified and experienced home tutors across Pakistan for Matric, FSc, O/A Levels, Test Prep, and Quranic Studies.">
+    <meta name="keywords" content="Pak Home Tutors, Home Tutors Pakistan, Online Tutor Lahore, O Level Tutors Islamabad, Female Tutors Karachi">
+
+    <!-- Open Graph / WhatsApp Preview Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pakhometutors.com/">
+    <meta property="og:title" content="Pak Home Tutors | Quality Education at Your Doorstep">
+    <meta property="og:description" content="Connecting qualified tutors with students across Pakistan. Experienced home & online teachers available.">
+    <meta property="og:image" content="https://pakhometutors.com/images/pht_logo.webp">
+
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="LpGSqdd6e6z2z5iLHB1ztV5mWE2ISjfbMgieDqkuOU4">
+
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        :root {
+            --bg-dark: #01004a;
+            --bg-card: #0a0a5c;
+            --bg-card-hover: #0f0f70;
+            --red: #be0000;
+            --yellow: #e2be2e;
+            --blue: #0d17ff;
+            --text: #f0f0ff;
+            --text-muted: #a0a0c0;
+            --border: rgba(226, 190, 46, 0.25);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg-dark);
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(160deg, #01004a 0%, #0a0a6e 50%, #01004a 100%);
+            color: white;
+            padding: 1.1rem 1rem 1.3rem;
+            text-align: center;
+            border-bottom: 2px solid var(--yellow);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-inner { max-width: 900px; margin: 0 auto; }
+
+        header img.logo {
+            max-height: 80px;
+            width: auto;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            filter: drop-shadow(0 0 8px rgba(226, 190, 46, 0.4));
+        }
+
+        header h1 {
+            font-size: 1.7rem;
+            margin-bottom: 4px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 0 12px rgba(13, 23, 255, 0.5);
+        }
+
+        header .tagline {
+            font-size: 0.95rem;
+            color: var(--yellow);
+            margin-bottom: 14px;
+            font-weight: 500;
+        }
+
+        nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            background: rgba(13, 23, 255, 0.35);
+            padding: 7px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            border: 1px solid rgba(226, 190, 46, 0.4);
+            transition: all 0.25s ease;
+        }
+
+        nav a:hover, nav a.active {
+            background: var(--blue);
+            border-color: var(--yellow);
+            box-shadow: 0 0 12px rgba(13, 23, 255, 0.5);
+        }
+
+        main { max-width: 900px; margin: 0 auto; padding: 0 12px 40px; }
+
+        .search-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px 16px;
+            margin: 18px 0 30px;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(13, 23, 255, 0.15);
+        }
+
+        .search-box h3 {
+            margin: 0 0 16px 0;
+            color: var(--yellow);
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .search-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+        .form-group { display: flex; flex-direction: column; }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group select {
+            padding: 12px 13px;
+            border: 1px solid rgba(226, 190, 46, 0.3);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            background: #06064a;
+            color: var(--text);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input::placeholder { color: #7070a0; }
+        .form-group select option { background: #0a0a5c; color: #fff; }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--yellow);
+            box-shadow: 0 0 0 2px rgba(226, 190, 46, 0.25);
+            background: #08085a;
+        }
+
+        .search-button {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--red), #9a0000);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 6px;
+            transition: transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(190, 0, 0, 0.4);
+        }
+
+        .search-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(190, 0, 0, 0.55);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--yellow);
+            font-size: 1.45rem;
+            margin: 30px 0 14px;
+            position: relative;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 55px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--blue), var(--yellow));
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .welcome-text {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 26px;
+            font-size: 1.05rem;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 14px;
+            padding: 22px 16px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card-hover);
+            box-shadow: 0 10px 28px rgba(13, 23, 255, 0.25), 0 0 0 1px rgba(226, 190, 46, 0.3);
+        }
+
+        .card-icon { font-size: 2.3rem; margin-bottom: 12px; display: block; }
+        .card h4 { color: var(--yellow); font-size: 1.1rem; margin-bottom: 8px; font-weight: 700; }
+        .card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+
+        .highlight-strip {
+            background: linear-gradient(135deg, #0d17ff 0%, #0606a0 50%, #01004a 100%);
+            color: white;
+            border-radius: 14px;
+            padding: 24px 18px;
+            text-align: center;
+            margin: 30px 0;
+            border: 1px solid rgba(226, 190, 46, 0.35);
+            box-shadow: 0 6px 24px rgba(13, 23, 255, 0.3);
+        }
+
+        .highlight-strip h3 { font-size: 1.3rem; margin-bottom: 16px; color: var(--yellow); }
+        .stats { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 14px; }
+        .stat-item { flex: 1; min-width: 100px; }
+        .stat-item .number { font-size: 1.7rem; font-weight: 800; display: block; color: #fff; text-shadow: 0 0 10px rgba(226, 190, 46, 0.5); }
+        .stat-item .label { font-size: 0.88rem; color: var(--text-muted); }
+
+        .cta-section {
+            text-align: center;
+            background: var(--bg-card);
+            border-radius: 14px;
+            padding: 26px 18px;
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-section h3 { color: var(--yellow); margin-bottom: 10px; font-size: 1.25rem; }
+        .cta-section p { margin-bottom: 16px; color: var(--text-muted); }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--red), #9a0000);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 14px rgba(190, 0, 0, 0.4);
+        }
+
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(190, 0, 0, 0.55); }
+
+        footer {
+            background: #000028;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 30px 16px 22px;
+            margin-top: 0;
+        }
+
+        .social-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border: 1px solid rgba(226, 190, 46, 0.3);
+            transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+        }
+
+        .social-links a:hover { transform: scale(1.12); box-shadow: 0 0 14px rgba(226, 190, 46, 0.4); }
+        .social-links a.facebook:hover { background: #1877f2; border-color: #1877f2; }
+        .social-links a.youtube:hover { background: #ff0000; border-color: #ff0000; }
+        .social-links a.instagram:hover { background: #e4405f; border-color: #e4405f; }
+        .social-links a.tiktok:hover { background: #000; border-color: var(--yellow); }
+
+        footer .copyright { font-size: 0.9rem; opacity: 0.85; }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 16px;
+            background: #25d366;
+            color: white;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            padding: 12px 18px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .whatsapp-float:hover { background: #128c7e; transform: scale(1.04); color: white; }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.4rem; }
+            header img.logo { max-height: 64px; }
+            .search-grid { grid-template-columns: 1fr; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .search-box { padding: 16px 12px; margin: 14px 0 22px; }
+            .search-box h3 { font-size: 1.1rem; }
+            .whatsapp-float { bottom: 16px; right: 12px; padding: 11px 15px; font-size: 0.9rem; }
+            .stats { gap: 10px; }
+            .stat-item .number { font-size: 1.4rem; }
+        }
+
+        @media (max-width: 380px) {
+            .whatsapp-float span { display: none; }
+            .whatsapp-float { width: 54px; height: 54px; border-radius: 50%; justify-content: center; padding: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <img src="images/pht_logo.webp" alt="Pak Home Tutors Logo" class="logo">
+            <h1>Pak Home Tutors</h1>
+            <p class="tagline">Connecting qualified tutors with students across Pakistan</p>
+            <nav>
+                <a href="index.html" class="active">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="search-box">
+            <h3>💬 Send Quick Requirement via WhatsApp</h3>
+            <div class="search-grid">
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <select id="city">
+                        <option value="Lahore">Lahore</option>
+                        <option value="Islamabad">Islamabad</option>
+                        <option value="Rawalpindi">Rawalpindi</option>
+                        <option value="Karachi">Karachi</option>
+                        <option value="Faisalabad">Faisalabad</option>
+                        <option value="Multan">Multan</option>
+                        <option value="Peshawar">Peshawar</option>
+                        <option value="Online Class (Global)">Online / Worldwide</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="area">Area / Sector</label>
+                    <input type="text" id="area" placeholder="e.g. DHA Phase 5, Johar Town, F-10">
+                </div>
+                <div class="form-group">
+                    <label for="grade">Grade / Class</label>
+                    <select id="grade">
+                        <option value="Primary (Class 1-5)">Primary (Class 1-5)</option>
+                        <option value="Middle (Class 6-8)">Middle (Class 6-8)</option>
+                        <option value="Matric">Matric</option>
+                        <option value="FSc / Intermediate">FSc / Intermediate</option>
+                        <option value="O Level">O Level</option>
+                        <option value="A Level">A Level</option>
+                        <option value="Quranic Studies">Quranic Studies</option>
+                        <option value="Entry Test Prep (MDCAT/ECAT)">Entry Test Prep (MDCAT/ECAT)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject(s)</label>
+                    <input type="text" id="subject" placeholder="e.g. Mathematics, Physics, Chemistry">
+                </div>
+                <button class="search-button" onclick="searchTutor()">Find Tutor via WhatsApp 💬</button>
+            </div>
+        </div>
+
+        <h2 class="section-title">Welcome to Pak Home Tutors</h2>
+        <p class="welcome-text">We provide experienced and verified home & online tutors for all grades, subjects, and educational boards across Pakistan.</p>
+
+        <div class="cards-grid">
+            <div class="card">
+                <span class="card-icon">🏫</span>
+                <h4>School Tutoring</h4>
+                <p>Primary to Matric home tutors for all major subjects with personalized plans.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">📚</span>
+                <h4>O / A Levels & FSc</h4>
+                <p>Expert teachers for Cambridge, Edexcel, Matric and Intermediate boards.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">📖</span>
+                <h4>Quran & Islamic Studies</h4>
+                <p>Qualified tutors for Nazra, Tajweed and Islamic education at home or online.</p>
+            </div>
+            <div class="card">
+                <span class="card-icon">🌐</span>
+                <h4>Online Classes</h4>
+                <p>Interactive online sessions available worldwide for students of every level.</p>
+            </div>
+        </div>
+
+        <div class="highlight-strip">
+            <h3>Why Choose Us?</h3>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="number">500+</span>
+                    <span class="label">Verified Tutors</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">100+</span>
+                    <span class="label">Cities Covered</span>
+                </div>
+                <div class="stat-item">
+                    <span class="number">24/7</span>
+                    <span class="label">Quick Response</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3>Ready to find the right tutor?</h3>
+            <p>Send your requirement above or contact us directly. We match you with the best available teacher.</p>
+            <a href="mailto:info@pakhometutors.com" class="cta-button">Email Us</a>
+        </div>
+    </main>
+
+<!-- PRE-FOOTER: loaded from shared pre-footer.js – edit that file to update all pages -->
+<div id="pre-footer-placeholder"></div>
+<script src="pre-footer.js" defer></script>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.facebook.com/pakhometutorcom/" target="_blank" rel="noopener noreferrer" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.youtube.com/channel/UCvucNBYsor-kyom-vXQ5rbA" target="_blank" rel="noopener noreferrer" class="youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com/pakhometutor/" target="_blank" rel="noopener noreferrer" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@pakhometutor" target="_blank" rel="noopener noreferrer" class="tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <p class="copyright">&copy; 2026 Pak Home Tutors. All rights reserved.</p>
+    </footer>
+
+    <a href="https://wa.me/923119696807?text=Hello!%20I%20am%20interested%20in%20Pak%20Home%20Tutors." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp" style="font-size:1.3rem;"></i>
+        <span>Chat on WhatsApp</span>
+    </a>
+
+    <script>
+        function searchTutor() {
+            var city = document.getElementById("city").value;
+            var area = document.getElementById("area").value.trim();
+            var grade = document.getElementById("grade").value;
+            var subject = document.getElementById("subject").value.trim();
+            var areaText = area ? area : "Not specified";
+            var subjectText = subject ? subject : "General Subjects";
+            var message = "Hello Pak Home Tutors! I am looking for a tutor.%0A%0A" +
+                          "📍 *City:* " + encodeURIComponent(city) + "%0A" +
+                          "🏠 *Area:* " + encodeURIComponent(areaText) + "%0A" +
+                          "📚 *Grade:* " + encodeURIComponent(grade) + "%0A" +
+                          "📖 *Subject(s):* " + encodeURIComponent(subjectText);
+            var whatsappUrl = "https://wa.me/923119696807?text=" + message;
+            window.open(whatsappUrl, "_blank");
+        }
+    </script>
+</body>
+</html>

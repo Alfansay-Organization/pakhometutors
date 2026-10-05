@@ -21,7 +21,8 @@ body {
     min-height: 100vh;
 }
 
-header {
+/* Legacy centered header (pages not yet on header.js) */
+header:not(.site-header) {
     background: linear-gradient(160deg, #01004a 0%, #0a0a6e 50%, #01004a 100%);
     color: white;
     padding: 1.1rem 1rem 1.3rem;
@@ -30,19 +31,159 @@ header {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 .header-inner { max-width: 960px; margin: 0 auto; }
-header img.logo {
+header:not(.site-header) img.logo {
     max-height: 70px; width: auto; margin-bottom: 8px; border-radius: 10px;
     filter: drop-shadow(0 0 8px rgba(226, 190, 46, 0.4));
 }
-header .site-name { font-size: 1.5rem; margin-bottom: 4px; font-weight: 700; color: #fff; }
-header .tagline { font-size: 0.9rem; color: var(--yellow); margin-bottom: 12px; font-weight: 500; }
-nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
-nav a {
+header:not(.site-header) .site-name { font-size: 1.5rem; margin-bottom: 4px; font-weight: 700; color: #fff; }
+header:not(.site-header) .tagline { font-size: 0.9rem; color: var(--yellow); margin-bottom: 12px; font-weight: 500; }
+header:not(.site-header) nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
+header:not(.site-header) nav a {
     color: #fff; text-decoration: none; font-weight: 600;
     background: rgba(13, 23, 255, 0.35); padding: 6px 16px; border-radius: 25px;
     font-size: 0.9rem; border: 1px solid rgba(226, 190, 46, 0.4); transition: all 0.25s ease;
 }
-nav a:hover, nav a.active { background: var(--blue); border-color: var(--yellow); box-shadow: 0 0 12px rgba(13, 23, 255, 0.5); }
+header:not(.site-header) nav a:hover, header:not(.site-header) nav a.active { background: var(--blue); border-color: var(--yellow); box-shadow: 0 0 12px rgba(13, 23, 255, 0.5); }
+
+/* ===== SHARED SITE HEADER (header.js) ===== */
+.site-header {
+    background: linear-gradient(160deg, #01004a 0%, #0a0a6e 50%, #01004a 100%);
+    border-bottom: 2px solid var(--yellow);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+}
+.site-header .header-bar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.65rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.site-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #fff;
+    flex-shrink: 0;
+}
+.site-header .brand img.logo {
+    max-height: 52px;
+    width: auto;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 6px rgba(226, 190, 46, 0.4));
+    margin: 0;
+}
+.site-header .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+.site-header .brand-text .name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+}
+.site-header .brand-text .tag {
+    font-size: 0.72rem;
+    color: var(--yellow);
+    font-weight: 500;
+}
+.site-header .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.site-header .nav-desktop a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    background: rgba(13, 23, 255, 0.3);
+    padding: 7px 14px;
+    border-radius: 22px;
+    font-size: 0.88rem;
+    border: 1px solid rgba(226, 190, 46, 0.35);
+    transition: all 0.22s ease;
+    white-space: nowrap;
+}
+.site-header .nav-desktop a:hover,
+.site-header .nav-desktop a.active {
+    background: var(--blue);
+    border-color: var(--yellow);
+    box-shadow: 0 0 10px rgba(13, 23, 255, 0.45);
+}
+.site-header .nav-desktop a.nav-wa {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    border-color: #25d366;
+}
+.site-header .nav-desktop a.nav-wa:hover {
+    background: #128c7e;
+    box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+}
+.menu-toggle {
+    display: none;
+    background: rgba(13, 23, 255, 0.4);
+    border: 1px solid rgba(226, 190, 46, 0.4);
+    border-radius: 8px;
+    color: #fff;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+.menu-toggle:hover { background: var(--blue); }
+.menu-toggle[aria-expanded="true"] { background: var(--blue); border-color: var(--yellow); }
+.nav-mobile {
+    display: none;
+    background: #06064a;
+    border-top: 1px solid rgba(226, 190, 46, 0.2);
+    padding: 10px 14px 14px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.nav-mobile.open { display: block; }
+.nav-mobile a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 14px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    border: 1px solid transparent;
+    font-size: 0.95rem;
+    transition: background 0.2s, border-color 0.2s;
+}
+.nav-mobile a:hover,
+.nav-mobile a.active {
+    background: rgba(13, 23, 255, 0.4);
+    border-color: rgba(226, 190, 46, 0.4);
+}
+.nav-mobile a.nav-wa {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    margin-top: 6px;
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .site-header .nav-desktop { display: none; }
+    .menu-toggle { display: inline-flex; }
+    .site-header .brand-text .tag { display: none; }
+    .site-header .brand img.logo { max-height: 44px; }
+    .site-header .brand-text .name { font-size: 1.05rem; }
+}
+@media (min-width: 769px) {
+    .nav-mobile { display: none !important; }
+}
 
 .breadcrumbs { max-width: 960px; margin: 12px auto 0; padding: 0 12px; font-size: 0.85rem; color: var(--text-muted); }
 .breadcrumbs a { color: var(--yellow); text-decoration: none; }
@@ -117,7 +258,6 @@ section li { margin-bottom: 8px; }
 .pre-footer-cta { margin-top: 8px; }
 .pre-footer-cta p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 14px; }
 
-/* Pre-footer list layout */
 .pre-footer-lists {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -155,8 +295,8 @@ footer .copyright { font-size: 0.88rem; opacity: 0.85; }
 
 @media (max-width: 600px) {
     .hero h1 { font-size: 1.35rem; }
-    header .site-name { font-size: 1.3rem; }
-    header img.logo { max-height: 58px; }
+    header:not(.site-header) .site-name { font-size: 1.3rem; }
+    header:not(.site-header) img.logo { max-height: 58px; }
     .section-title { font-size: 1.25rem; }
     .cards-grid { grid-template-columns: 1fr; }
     .pre-footer { padding: 30px 12px 28px; }

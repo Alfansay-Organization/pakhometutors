@@ -1,7 +1,7 @@
 /* Shared Header + WhatsApp float + favicon – edit this file only to update every page */
 (function () {
   var WA = 'https://wa.me/923119696807?text=Hello%20Pak%20Home%20Tutors%2C%20I%20need%20a%20tutor';
-  var FAVICON = 'images/logo.webp';
+  var FAVICON = 'images/pht_logo.webp';
 
   var headerHtml = `
 <header class="site-header">

@@ -1,6 +1,7 @@
-/* Shared Header + WhatsApp float – edit this file only to update every page */
+/* Shared Header + WhatsApp float + favicon – edit this file only to update every page */
 (function () {
   var WA = 'https://wa.me/923119696807?text=Hello%20Pak%20Home%20Tutors%2C%20I%20need%20a%20tutor';
+  var FAVICON = 'images/logo.webp';
 
   var headerHtml = `
 <header class="site-header">
@@ -39,6 +40,33 @@
   <span>Chat on WhatsApp</span>
 </a>`;
 
+  function injectFavicon() {
+    if (document.querySelector('link[rel="icon"][data-pht-favicon]')) return;
+    var head = document.head || document.getElementsByTagName('head')[0];
+    if (!head) return;
+
+    // Remove generic default icons if any, keep ours as primary
+    var icon = document.createElement('link');
+    icon.rel = 'icon';
+    icon.type = 'image/webp';
+    icon.href = FAVICON;
+    icon.setAttribute('data-pht-favicon', '1');
+    head.appendChild(icon);
+
+    var shortcut = document.createElement('link');
+    shortcut.rel = 'shortcut icon';
+    shortcut.type = 'image/webp';
+    shortcut.href = FAVICON;
+    shortcut.setAttribute('data-pht-favicon', '1');
+    head.appendChild(shortcut);
+
+    var apple = document.createElement('link');
+    apple.rel = 'apple-touch-icon';
+    apple.href = FAVICON;
+    apple.setAttribute('data-pht-favicon', '1');
+    head.appendChild(apple);
+  }
+
   function pathName() {
     var p = (window.location.pathname || '').split('/').pop() || 'index.html';
     if (!p || p === '') p = 'index.html';
@@ -56,7 +84,6 @@
       else if (page.indexOf('lahore') !== -1 && a.getAttribute('data-nav') === 'lahore') a.classList.add('active');
       else if ((page.indexOf('dha') !== -1 || page.indexOf('islamabad') !== -1) && page.indexOf('lahore') === -1) {
         if (a.getAttribute('data-nav') === 'islamabad' && page.indexOf('dha') === -1 && page.indexOf('bahria') === -1) {
-          /* sector pages */
           if (/g\d|f\d|e\d|i\d|pwd|soan|korang|khanna|chak|faisal|gulberg|bani|emaar|margalla|park-view|capital|top-city/.test(page))
             a.classList.add('active');
         }
@@ -88,6 +115,8 @@
   }
 
   function inject() {
+    injectFavicon();
+
     // Remove existing headers (shared or legacy)
     document.querySelectorAll('header.site-header, header').forEach(function (el) {
       el.remove();
@@ -113,6 +142,9 @@
 
     bindMenu();
   }
+
+  // Favicon can run immediately (head is available)
+  injectFavicon();
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', inject);

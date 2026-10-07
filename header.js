@@ -17,7 +17,7 @@
       <a href="index.html" data-nav="home">Home</a>
 
       <div class="nav-dropdown" data-nav="islamabad">
-        <button type="button" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">Islamabad <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+        <button type="button" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">Islamabad <span class="nav-caret" aria-hidden="true">▾</span></button>
         <div class="nav-drop-panel">
           <div class="nav-drop-group">
             <span class="nav-drop-label">G Sectors</span>
@@ -34,7 +34,7 @@
             <a href="home-tutors-g16-islamabad.html">G-16</a>
           </div>
           <div class="nav-drop-group">
-            <span class="nav-drop-label">F, E & I Sectors</span>
+            <span class="nav-drop-label">F, E &amp; I Sectors</span>
             <a href="home-tutors-f6-islamabad.html">F-6</a>
             <a href="home-tuition-f7-islamabad.html">F-7</a>
             <a href="home-tutors-f8-islamabad.html">F-8</a>
@@ -82,7 +82,7 @@
       </div>
 
       <div class="nav-dropdown" data-nav="lahore">
-        <button type="button" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">Lahore <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+        <button type="button" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">Lahore <span class="nav-caret" aria-hidden="true">▾</span></button>
         <div class="nav-drop-panel">
           <div class="nav-drop-group">
             <span class="nav-drop-label">Main Areas</span>
@@ -134,7 +134,7 @@
       </div>
 
       <div class="nav-dropdown" data-nav="subjects">
-        <button type="button" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">Subjects <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+        <button type="button" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">Subjects <span class="nav-caret" aria-hidden="true">▾</span></button>
         <div class="nav-drop-panel nav-drop-panel--compact">
           <div class="nav-drop-group">
             <span class="nav-drop-label">Core Subjects</span>
@@ -146,7 +146,7 @@
             <a href="computer-science-home-tutors-dha-phase-2-islamabad.html">Computer Science</a>
           </div>
           <div class="nav-drop-group">
-            <span class="nav-drop-label">Tech & Specialty</span>
+            <span class="nav-drop-label">Tech &amp; Specialty</span>
             <a href="ai-tutors-dha-islamabad.html">AI Tutors</a>
             <a href="python-tutors-dha-islamabad.html">Python</a>
             <a href="coding-tutors-dha-islamabad.html">Coding</a>
@@ -157,7 +157,7 @@
       </div>
 
       <div class="nav-dropdown" data-nav="curricula">
-        <button type="button" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">Curricula <i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+        <button type="button" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">Curricula <span class="nav-caret" aria-hidden="true">▾</span></button>
         <div class="nav-drop-panel nav-drop-panel--compact">
           <div class="nav-drop-group">
             <span class="nav-drop-label">Cambridge / International</span>
@@ -193,7 +193,7 @@
         <a href="home-tutors-dha-islamabad.html">DHA Islamabad</a>
         <a href="home-tutors-dha-phase-2-islamabad.html">DHA Phase 2</a>
         <a href="online-tutors-bahria-town-islamabad.html">Bahria Town</a>
-        <a href="home-tutors-pwd-islamabad.html">PWD & More Areas</a>
+        <a href="home-tutors-pwd-islamabad.html">PWD &amp; More Areas</a>
       </div>
     </details>
 
@@ -250,6 +250,25 @@
   <span>Chat on WhatsApp</span>
 </a>`;
 
+  function injectNavStyles() {
+    if (document.getElementById('pht-nav-fix')) return;
+    var s = document.createElement('style');
+    s.id = 'pht-nav-fix';
+    s.textContent = [
+      '.site-header .nav-desktop > a{font-size:0.8rem!important;font-weight:600;transition:font-weight .15s,color .15s}',
+      '.site-header .nav-desktop > a:hover,.site-header .nav-desktop > a.active{background:transparent!important;font-weight:700!important;color:var(--yellow)!important}',
+      '.nav-drop-btn{font-size:0.8rem!important;font-weight:600;background:transparent!important;transition:font-weight .15s,color .15s}',
+      '.nav-drop-btn:hover,.nav-dropdown.open .nav-drop-btn,.nav-dropdown.active .nav-drop-btn{background:transparent!important;font-weight:700!important;color:var(--yellow)!important}',
+      '.nav-caret{font-size:0.7rem;margin-left:3px;display:inline-block;transition:transform .2s}',
+      '.nav-dropdown.open .nav-caret{transform:rotate(180deg)}',
+      '.nav-mobile .mob-section summary{list-style:none}',
+      '.nav-mobile .mob-section summary::-webkit-details-marker{display:none}',
+      '.nav-mobile .mob-section summary::after{content:"\\25BE"!important;font-family:inherit!important;font-size:0.85rem!important;font-weight:400!important;opacity:0.75;margin-left:8px}',
+      '.nav-mobile .mob-section[open] summary::after{content:"\\25B4"!important;transform:none!important}'
+    ].join('');
+    (document.head || document.documentElement).appendChild(s);
+  }
+
   function injectFavicon() {
     if (document.querySelector('link[rel="icon"][data-pht-favicon]')) return;
     var head = document.head || document.getElementsByTagName('head')[0];
@@ -290,12 +309,11 @@
         else if (page === 'index.html' && el.getAttribute('data-nav') === 'home') el.classList.add('active');
       }
     });
-    // Highlight parent dropdowns
     root.querySelectorAll('.nav-dropdown').forEach(function (dd) {
       dd.classList.remove('active');
       var nav = dd.getAttribute('data-nav');
       if (nav === 'lahore' && page.indexOf('lahore') !== -1) dd.classList.add('active');
-      if (nav === 'islamabad' && (page.indexOf('islamabad') !== -1 || /g\d|f\d|e\d|i\d|pwd|soan|korang|khanna|chak|faisal|bani|emaar|margalla|park-view|capital|top-city|bahria|dha-phase|dha-islamabad/.test(page)) && page.indexOf('lahore') === -1)
+      if (nav === 'islamabad' && (page.indexOf('islamabad') !== -1 || /g\\d|f\\d|e\\d|i\\d|pwd|soan|korang|khanna|chak|faisal|bani|emaar|margalla|park-view|capital|top-city|bahria|dha-phase|dha-islamabad/.test(page)) && page.indexOf('lahore') === -1)
         dd.classList.add('active');
       if (nav === 'subjects' && /(physics|mathematics|chemistry|biology|english|computer-science|ai-tutors|python|coding|robotics)/.test(page))
         dd.classList.add('active');
@@ -313,7 +331,6 @@
         e.stopPropagation();
         var open = dd.classList.toggle('open');
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        // Close others
         drops.forEach(function (other) {
           if (other !== dd) {
             other.classList.remove('open');
@@ -355,6 +372,7 @@
   }
 
   function inject() {
+    injectNavStyles();
     injectFavicon();
     document.querySelectorAll('header.site-header, header').forEach(function (el) { el.remove(); });
     document.querySelectorAll('a.whatsapp-float').forEach(function (el) { el.remove(); });
@@ -377,6 +395,7 @@
     bindDropdowns();
   }
 
+  injectNavStyles();
   injectFavicon();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', inject);

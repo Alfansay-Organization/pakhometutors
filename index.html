@@ -1,431 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/pht_logo.webp" type="image/webp">
-    <link rel="shortcut icon" href="images/pht_logo.webp" type="image/webp">
-    <link rel="apple-touch-icon" href="images/pht_logo.webp">
-    
-    <!-- Primary Meta Tags -->
-    <title>Pak Home Tutors | Verified Home & Online Tutors in Pakistan</title>
-    <meta name="title" content="Pak Home Tutors | Verified Home & Online Tutors in Pakistan">
-    <meta name="description" content="Find qualified and experienced home tutors across Pakistan for Matric, FSc, O/A Levels, Test Prep, and Quranic Studies.">
-    <meta name="keywords" content="Pak Home Tutors, Home Tutors Pakistan, Online Tutor Lahore, O Level Tutors Islamabad, Female Tutors Karachi">
-
-    <!-- Open Graph / WhatsApp Preview Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pakhometutors.com/">
-    <meta property="og:title" content="Pak Home Tutors | Quality Education at Your Doorstep">
-    <meta property="og:description" content="Connecting qualified tutors with students across Pakistan. Experienced home & online teachers available.">
-    <meta property="og:image" content="https://pakhometutors.com/images/pht_logo.webp">
-
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="LpGSqdd6e6z2z5iLHB1ztV5mWE2ISjfbMgieDqkuOU4">
-
-    <!-- Font Awesome for social icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-
-    <style>
-        :root {
-            --bg-dark: #01004a;
-            --bg-card: #0a0a5c;
-            --bg-card-hover: #0f0f70;
-            --red: #be0000;
-            --yellow: #e2be2e;
-            --blue: #0d17ff;
-            --text: #f0f0ff;
-            --text-muted: #a0a0c0;
-            --border: rgba(226, 190, 46, 0.25);
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--bg-dark);
-            min-height: 100vh;
-        }
-
-        main { max-width: 900px; margin: 0 auto; padding: 0 12px 40px; }
-
-        .search-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 20px 16px;
-            margin: 18px 0 30px;
-            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(13, 23, 255, 0.15);
-        }
-
-        .search-box h3 {
-            margin: 0 0 16px 0;
-            color: var(--yellow);
-            text-align: center;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .search-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
-        .form-group { display: flex; flex-direction: column; }
-
-        .form-group label {
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .form-group input, .form-group select {
-            padding: 12px 13px;
-            border: 1px solid rgba(226, 190, 46, 0.3);
-            border-radius: 8px;
-            font-size: 0.95rem;
-            background: #06064a;
-            color: var(--text);
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .form-group input::placeholder { color: #7070a0; }
-        .form-group select option { background: #0a0a5c; color: #fff; }
-
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--yellow);
-            box-shadow: 0 0 0 2px rgba(226, 190, 46, 0.25);
-            background: #08085a;
-        }
-
-        .search-button {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, var(--red), #9a0000);
-            color: white;
-            border: none;
-            padding: 14px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 6px;
-            transition: transform 0.15s, box-shadow 0.2s;
-            box-shadow: 0 4px 14px rgba(190, 0, 0, 0.4);
-        }
-
-        .search-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(190, 0, 0, 0.55);
-        }
-
-        .section-title {
-            text-align: center;
-            color: var(--yellow);
-            font-size: 1.45rem;
-            margin: 30px 0 14px;
-            position: relative;
-            font-weight: 700;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 55px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--blue), var(--yellow));
-            margin: 8px auto 0;
-            border-radius: 2px;
-        }
-
-        .welcome-text {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 26px;
-            font-size: 1.05rem;
-            max-width: 620px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 30px;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border-radius: 14px;
-            padding: 22px 16px;
-            text-align: center;
-            border: 1px solid var(--border);
-            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            background: var(--bg-card-hover);
-            box-shadow: 0 10px 28px rgba(13, 23, 255, 0.25), 0 0 0 1px rgba(226, 190, 46, 0.3);
-        }
-
-        .card-icon { font-size: 2.3rem; margin-bottom: 12px; display: block; }
-        .card h4 { color: var(--yellow); font-size: 1.1rem; margin-bottom: 8px; font-weight: 700; }
-        .card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
-
-        .highlight-strip {
-            background: linear-gradient(135deg, #0d17ff 0%, #0606a0 50%, #01004a 100%);
-            color: white;
-            border-radius: 14px;
-            padding: 24px 18px;
-            text-align: center;
-            margin: 30px 0;
-            border: 1px solid rgba(226, 190, 46, 0.35);
-            box-shadow: 0 6px 24px rgba(13, 23, 255, 0.3);
-        }
-
-        .highlight-strip h3 { font-size: 1.3rem; margin-bottom: 16px; color: var(--yellow); }
-        .stats { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 14px; }
-        .stat-item { flex: 1; min-width: 100px; }
-        .stat-item .number { font-size: 1.7rem; font-weight: 800; display: block; color: #fff; text-shadow: 0 0 10px rgba(226, 190, 46, 0.5); }
-        .stat-item .label { font-size: 0.88rem; color: var(--text-muted); }
-
-        .cta-section {
-            text-align: center;
-            background: var(--bg-card);
-            border-radius: 14px;
-            padding: 26px 18px;
-            border: 1px solid var(--border);
-            margin-bottom: 20px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .cta-section h3 { color: var(--yellow); margin-bottom: 10px; font-size: 1.25rem; }
-        .cta-section p { margin-bottom: 16px; color: var(--text-muted); }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--red), #9a0000);
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 14px rgba(190, 0, 0, 0.4);
-        }
-
-        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(190, 0, 0, 0.55); }
-
-        footer {
-            background: #000028;
-            color: var(--text-muted);
-            text-align: center;
-            padding: 30px 16px 22px;
-            margin-top: 0;
-        }
-
-        .social-links { display: flex; justify-content: center; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            color: #fff;
-            font-size: 1.2rem;
-            text-decoration: none;
-            border: 1px solid rgba(226, 190, 46, 0.3);
-            transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
-        }
-
-        .social-links a:hover { transform: scale(1.12); box-shadow: 0 0 14px rgba(226, 190, 46, 0.4); }
-        .social-links a.facebook:hover { background: #1877f2; border-color: #1877f2; }
-        .social-links a.youtube:hover { background: #ff0000; border-color: #ff0000; }
-        .social-links a.instagram:hover { background: #e4405f; border-color: #e4405f; }
-        .social-links a.tiktok:hover { background: #000; border-color: var(--yellow); }
-
-        footer .copyright { font-size: 0.9rem; opacity: 0.85; }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 16px;
-            background: #25d366;
-            color: white;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            padding: 12px 18px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
-            text-decoration: none;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .whatsapp-float:hover { background: #128c7e; transform: scale(1.04); color: white; }
-
-        @media (max-width: 600px) {
-            .search-grid { grid-template-columns: 1fr; }
-            .cards-grid { grid-template-columns: 1fr; }
-            .search-box { padding: 16px 12px; margin: 14px 0 22px; }
-            .search-box h3 { font-size: 1.1rem; }
-            .whatsapp-float { bottom: 16px; right: 12px; padding: 11px 15px; font-size: 0.9rem; }
-            .stats { gap: 10px; }
-            .stat-item .number { font-size: 1.4rem; }
-        }
-
-        @media (max-width: 380px) {
-            .whatsapp-float span { display: none; }
-            .whatsapp-float { width: 54px; height: 54px; border-radius: 50%; justify-content: center; padding: 0; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="images/pht_logo.webp" type="image/webp">
+<link rel="shortcut icon" href="images/pht_logo.webp" type="image/webp">
+<link rel="apple-touch-icon" href="images/pht_logo.webp">
+<title>Pak Home Tutors | Home & Online Tutors in Pakistan</title>
+<meta name="description" content="Request home tutors and online tutors in Lahore, Islamabad and across Pakistan for Physics, Maths, O Level, A Level, Matric, FSc and more via Pak Home Tutors.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://pakhometutors.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pakhometutors.com/">
+<meta property="og:title" content="Pak Home Tutors | Home & Online Tutors in Pakistan">
+<meta property="og:description" content="Home and online tutors for school, college and Cambridge pathways. Contact Pak Home Tutors on WhatsApp.">
+<meta property="og:image" content="https://pakhometutors.com/images/pht_logo.webp">
+<meta name="google-site-verification" content="LpGSqdd6e6z2z5iLHB1ztV5mWE2ISjfbMgieDqkuOU4">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+main.home-main { max-width: 1040px; margin: 0 auto; padding: 0 14px 40px; }
+.home-hero { margin: 18px 0 8px; }
+.home-hero h1 {
+  font-size: clamp(1.45rem, 3.5vw, 1.9rem);
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.home-hero .lead { color: var(--text-muted, #a0a0b8); max-width: 720px; font-size: 1.02rem; margin-bottom: 14px; }
+.search-box {
+  background: #12122a;
+  border: 1px solid rgba(226,190,46,0.25);
+  border-radius: 12px;
+  padding: 18px 16px;
+  margin: 16px 0 28px;
+}
+.search-box h2 { color: var(--yellow, #e2be2e); font-size: 1.1rem; margin-bottom: 12px; }
+.search-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.search-form .form-group { display: flex; flex-direction: column; gap: 4px; }
+.search-form label { font-size: 0.85rem; color: #a0a0b8; }
+.search-form input, .search-form select {
+  padding: 11px 12px; border-radius: 8px; border: 1px solid rgba(226,190,46,0.3);
+  background: #0a0a20; color: #fff; font-size: 0.95rem;
+}
+.search-form input:focus, .search-form select:focus {
+  outline: none; border-color: #e2be2e;
+}
+.search-button {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #be0000, #9a0000);
+  color: #fff; border: none; padding: 13px; font-size: 1.02rem; font-weight: 700;
+  border-radius: 8px; cursor: pointer; margin-top: 4px;
+}
+.search-button:hover { filter: brightness(1.08); }
+.section-title {
+  text-align: center; color: #e2be2e; font-size: 1.35rem; margin: 28px 0 12px; font-weight: 700;
+}
+.section-title::after {
+  content: ''; display: block; width: 48px; height: 3px;
+  background: linear-gradient(90deg, #0d17ff, #e2be2e); margin: 8px auto 0; border-radius: 2px;
+}
+.section-intro { text-align: center; color: #a0a0b8; max-width: 640px; margin: 0 auto 18px; font-size: 0.98rem; }
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 8px 0 28px;
+}
+.subject-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  color: #1a1a2e;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.subject-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.28);
+}
+.subject-card img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+  background: #e8e8f0;
+}
+.subject-card .sc-body { padding: 12px 12px 14px; }
+.subject-card h3 {
+  font-size: 0.98rem;
+  color: #0d17ff;
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+.subject-card p {
+  font-size: 0.82rem;
+  color: #444;
+  margin: 0;
+  line-height: 1.4;
+}
+.area-links {
+  display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+  margin: 8px 0 28px;
+}
+.area-links a {
+  background: #12122a;
+  border: 1px solid rgba(226,190,46,0.3);
+  color: #f0f0ff;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  transition: border-color 0.15s, color 0.15s;
+}
+.area-links a:hover { border-color: #e2be2e; color: #e2be2e; }
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.feature-card {
+  background: #12122a;
+  border: 1px solid rgba(226,190,46,0.2);
+  border-radius: 12px;
+  padding: 18px 14px;
+  text-align: center;
+}
+.feature-card h3 { color: #e2be2e; font-size: 1rem; margin-bottom: 6px; }
+.feature-card p { color: #a0a0b8; font-size: 0.9rem; margin: 0; }
+.seo-article {
+  background: #12122a;
+  border: 1px solid rgba(226,190,46,0.2);
+  border-radius: 12px;
+  padding: 20px 18px;
+  margin: 10px 0 28px;
+}
+.seo-article h2 { color: #e2be2e; font-size: 1.2rem; margin-bottom: 12px; }
+.seo-article h3 { color: #fff; font-size: 1.02rem; margin: 14px 0 6px; }
+.seo-article p, .seo-article li { color: #a0a0b8; font-size: 0.94rem; line-height: 1.65; margin-bottom: 10px; }
+.seo-article ul { padding-left: 1.25em; margin: 0 0 10px; }
+.seo-article a { color: #e2be2e; }
+.cta-section {
+  text-align: center;
+  background: #12122a;
+  border: 1px solid rgba(226,190,46,0.25);
+  border-radius: 12px;
+  padding: 22px 16px;
+  margin: 10px 0 8px;
+}
+.cta-section h2 { color: #e2be2e; font-size: 1.25rem; margin-bottom: 8px; }
+.cta-section p { color: #a0a0b8; margin-bottom: 14px; }
+.cta-button {
+  display: inline-block;
+  background: #25d366;
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin: 4px;
+}
+.cta-button:hover { filter: brightness(1.06); }
+.cta-button.secondary { background: #0d17ff; }
+@media (max-width: 900px) {
+  .subject-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .subject-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .subject-card img { height: 90px; }
+  .search-form { grid-template-columns: 1fr; }
+  .feature-grid { grid-template-columns: 1fr; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Pak Home Tutors",
+  "url": "https://pakhometutors.com/",
+  "logo": "https://pakhometutors.com/images/pht_logo.webp",
+  "description": "Home and online tutors for students in Pakistan across school, college and Cambridge pathways.",
+  "areaServed": ["Lahore", "Islamabad", "Rawalpindi", "Pakistan"],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "url": "https://wa.me/923119696807"
+  },
+  "sameAs": [
+    "https://www.facebook.com/pakhometutors",
+    "https://www.instagram.com/pakhometutors",
+    "https://www.youtube.com/@pakhometutors",
+    "https://www.tiktok.com/@pakhometutors"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Pak Home Tutors",
+  "url": "https://pakhometutors.com/"
+}
+</script>
 </head>
 <body>
+<div id="header-placeholder"></div>
 
-    <div id="header-placeholder"></div>
+<main class="home-main">
+  <section class="home-hero">
+    <h1>Home & Online Tutors in Pakistan for School, College & Cambridge</h1>
+    <p class="lead">Pak Home Tutors helps parents and students request home tuition or online tutors for Physics, Mathematics, Chemistry, Biology, English, Computer Science, O Level, A Level, Matric, FSc and related pathways in Lahore, Islamabad and beyond.</p>
+  </section>
 
-    <main>
-        <div class="search-box">
-            <h3>💬 Send Quick Requirement via WhatsApp</h3>
-            <div class="search-grid">
-                <div class="form-group">
-                    <label for="city">City</label>
-                    <select id="city">
-                        <option value="Lahore">Lahore</option>
-                        <option value="Islamabad">Islamabad</option>
-                        <option value="Rawalpindi">Rawalpindi</option>
-                        <option value="Karachi">Karachi</option>
-                        <option value="Faisalabad">Faisalabad</option>
-                        <option value="Multan">Multan</option>
-                        <option value="Peshawar">Peshawar</option>
-                        <option value="Online Class (Global)">Online / Worldwide</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="area">Area / Sector</label>
-                    <input type="text" id="area" placeholder="e.g. DHA Phase 5, Johar Town, F-10">
-                </div>
-                <div class="form-group">
-                    <label for="grade">Grade / Class</label>
-                    <select id="grade">
-                        <option value="Primary (1-5)">Primary (1-5)</option>
-                        <option value="Middle (6-8)">Middle (6-8)</option>
-                        <option value="Matric / 9th-10th">Matric / 9th-10th</option>
-                        <option value="FSc / Intermediate">FSc / Intermediate</option>
-                        <option value="O Level">O Level</option>
-                        <option value="A Level">A Level</option>
-                        <option value="IGCSE / GCSE">IGCSE / GCSE</option>
-                        <option value="University / Other">University / Other</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject(s)</label>
-                    <input type="text" id="subject" placeholder="e.g. Physics, Maths, English">
-                </div>
-                <button type="button" class="search-button" onclick="searchTutor()">Find Tutor on WhatsApp</button>
-            </div>
-        </div>
+  <div class="search-box">
+    <h2>Send a quick requirement on WhatsApp</h2>
+    <div class="search-form">
+      <div class="form-group">
+        <label for="city">City</label>
+        <select id="city">
+          <option value="Lahore">Lahore</option>
+          <option value="Islamabad">Islamabad</option>
+          <option value="Rawalpindi">Rawalpindi</option>
+          <option value="Karachi">Karachi</option>
+          <option value="Other">Other / Online</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="area">Area</label>
+        <input type="text" id="area" placeholder="e.g. Gulberg, DHA Phase 2">
+      </div>
+      <div class="form-group">
+        <label for="grade">Grade / Level</label>
+        <select id="grade">
+          <option value="Primary">Primary</option>
+          <option value="Middle">Middle</option>
+          <option value="Matric">Matric</option>
+          <option value="FSc">FSc</option>
+          <option value="O Level">O Level</option>
+          <option value="A Level">A Level</option>
+          <option value="IGCSE">IGCSE</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject(s)</label>
+        <input type="text" id="subject" placeholder="e.g. Physics, Maths, English">
+      </div>
+      <button type="button" class="search-button" onclick="searchTutor()">Find Tutor on WhatsApp</button>
+    </div>
+  </div>
 
-        <h2 class="section-title">Why Choose Pak Home Tutors?</h2>
-        <p class="welcome-text">We connect students and parents with verified home and online tutors across Pakistan for school, college, Cambridge, and skill-based subjects.</p>
+  <h2 class="section-title">Tutors for Subjects</h2>
+  <p class="section-intro">Explore popular subject and curriculum pages. Each card opens a focused tutoring page you can share or use to request support.</p>
+  <div class="subject-grid">
+    <a class="subject-card" href="physics-home-tutors-gulberg-lahore.html">
+      <img src="images/34.webp" alt="Physics home tutors" width="280" height="110" loading="lazy">
+      <div class="sc-body"><h3>Physics Tutors</h3><p>Mechanics, electricity, exam numericals</p></div>
+    </a>
+    <a class="subject-card" href="mathematics-home-tutors-gulberg-lahore.html">
+      <img src="images/35.webp" alt="Mathematics home tutors" width="280" height="110" loading="lazy">
+      <div class="sc-body"><h3>Mathematics Tutors</h3><p>Algebra, geometry, problem solving</p></div>
+    </a>
+    <a class="subject-card" href="chemistry-home-tutors-gulberg-lahore.html">
+      <img src="images/36.webp" alt="Chemistry home tutors" width="280" height="110" loading="lazy">
+      <div class="sc-body"><h3>Chemistry Tutors</h3><p>Reactions, equations, board practice</p></div>
+    </a>
+    <a class="subject-card" href="biology-home-tutors-gulberg-lahore.html">
+      <img src="images/37.webp" alt="Biology home tutors" width="280" height="110" loading="lazy">
+      <div class="sc-body"><h3>Biology Tutors</h3><p>Concepts, diagrams, exam writing</p></div>
+    </a>
+    <a class="subject-card" href="english-home-tutors-gulberg-lahore.html">
+      <img src="images/38.webp" alt="English home tutors" width="280" height="110" loading="lazy">
+      <div class="sc-body"><h3>English Tutors</h3><p>Writing, comprehension, literature</p></div>
+    </a>
+    <a class="subject-card" href="computer-science-home-tutors-gulberg-lahore.html">
+      <img src="images/39.webp" alt="Computer Science home tutors" width="280" height="110" loading="lazy">
+      <div class="sc-body"><h3>Computer Science</h3><p>Logic, programming basics, theory</p></div>
+    </a>
+    <a class="subject-card" href="o-level-home-tutors-gulberg-lahore.html">
+      <img src="images/40.webp" alt="O Level home tutors" width="280" height="110" loading="lazy">
+      <div class="sc-body"><h3>O Level Tutors</h3><p>Cambridge-style papers and command words</p></div>
+    </a>
+    <a class="subject-card" href="a-level-home-tutors-gulberg-lahore.html">
+      <img src="images/41.webp" alt="A Level home tutors" width="280" height="110" loading="lazy">
+      <div class="sc-body"><h3>A Level Tutors</h3><p>Depth, application and evaluation skills</p></div>
+    </a>
+  </div>
 
-        <div class="cards-grid">
-            <div class="card">
-                <span class="card-icon">🏠</span>
-                <h4>Home Tutors</h4>
-                <p>Experienced teachers visit your home for one-to-one learning in your area.</p>
-            </div>
-            <div class="card">
-                <span class="card-icon">💻</span>
-                <h4>Online Tutors</h4>
-                <p>Live online classes for students anywhere in Pakistan and abroad.</p>
-            </div>
-            <div class="card">
-                <span class="card-icon">📚</span>
-                <h4>All Subjects &amp; Boards</h4>
-                <p>Matric, FSc, O/A Level, IGCSE, Federal Board, and more.</p>
-            </div>
-            <div class="card">
-                <span class="card-icon">👩‍🏫</span>
-                <h4>Female Tutors</h4>
-                <p>Qualified female home tutors available for girls and preferred households.</p>
-            </div>
-        </div>
+  <h2 class="section-title">Popular Areas</h2>
+  <p class="section-intro">Start from a local hub page, then open subject or curriculum pages for that area.</p>
+  <div class="area-links">
+    <a href="gulberg-lahore.html">Gulberg Lahore</a>
+    <a href="dha-lahore.html">DHA Lahore</a>
+    <a href="cavalry-ground-lahore.html">Cavalry Ground</a>
+    <a href="model-town-lahore.html">Model Town</a>
+    <a href="bahria-town-lahore.html">Bahria Town Lahore</a>
+    <a href="johar-town-lahore.html">Johar Town</a>
+    <a href="home-tutors-dha-islamabad.html">DHA Islamabad</a>
+    <a href="home-tutors-g9-islamabad.html">G-9 Islamabad</a>
+    <a href="home-tuition-f7-islamabad.html">F-7 Islamabad</a>
+    <a href="online-tutors-bahria-town-islamabad.html">Bahria Town Islamabad</a>
+  </div>
 
-        <div class="highlight-strip">
-            <h3>Trusted by Families Across Pakistan</h3>
-            <div class="stats">
-                <div class="stat-item">
-                    <span class="number">500+</span>
-                    <span class="label">Tutors Network</span>
-                </div>
-                <div class="stat-item">
-                    <span class="number">Islamabad</span>
-                    <span class="label">&amp; Rawalpindi</span>
-                </div>
-                <div class="stat-item">
-                    <span class="number">Lahore</span>
-                    <span class="label">DHA, Gulberg &amp; More</span>
-                </div>
-                <div class="stat-item">
-                    <span class="number">24/7</span>
-                    <span class="label">WhatsApp Support</span>
-                </div>
-            </div>
-        </div>
+  <h2 class="section-title">Why Choose Pak Home Tutors?</h2>
+  <p class="section-intro">We help you describe the grade, subject, curriculum and location so a suitable home or online tutor can be discussed.</p>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>Home Tuition</h3>
+      <p>In-person sessions when families prefer a tutor at home in covered areas.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Online Tuition</h3>
+      <p>Live online lessons for flexible schedules and students outside visit range.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Curriculum Match</h3>
+      <p>Matric, FSc, O Level, A Level, IGCSE and school pathways discussed up front.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Clear Next Step</h3>
+      <p>Message on WhatsApp with city, area, grade and subjects to start the conversation.</p>
+    </div>
+  </div>
 
-        <div class="cta-section">
-            <h3>Ready to Start Learning?</h3>
-            <p>Tell us your city, area, grade and subjects — we will match a suitable tutor quickly.</p>
-            <a href="https://wa.me/923119696807?text=Hello%20Pak%20Home%20Tutors%2C%20I%20need%20a%20tutor" class="cta-button" target="_blank" rel="noopener">Chat on WhatsApp</a>
-            &nbsp;
-            <a href="mailto:info@pakhometutors.com" class="cta-button">Email Us</a>
-        </div>
-    </main>
+  <article class="seo-article" id="keyword-strategy">
+    <h2>How Parents Search for Tutors (and How Our Pages Are Organised)</h2>
+    <p>Most families do not search only for “tutor.” They combine a <strong>subject or curriculum</strong> with a <strong>location</strong> and sometimes a <strong>format</strong> (home or online). Useful examples include “Physics home tutors Gulberg Lahore,” “O Level tutors DHA Islamabad,” or “online Maths tutor Matric.”</p>
+    <h3>What a good tutoring search usually includes</h3>
+    <ul>
+      <li><strong>Subject:</strong> Physics, Mathematics, Chemistry, Biology, English, Computer Science</li>
+      <li><strong>Level:</strong> Primary, Matric, FSc, O Level, A Level, IGCSE</li>
+      <li><strong>Place:</strong> Gulberg, DHA, Cavalry Ground, Model Town, G/F sectors, Bahria Town</li>
+      <li><strong>Format:</strong> home tuition, private tutor, online tutor</li>
+    </ul>
+    <h3>How Pak Home Tutors structures pages</h3>
+    <p>Instead of one generic page for every query, the site uses focused pages for areas and subjects. For example, <a href="physics-home-tutors-gulberg-lahore.html">Physics tutors in Gulberg</a> is separate from <a href="o-level-home-tutors-gulberg-lahore.html">O Level tutors in Gulberg</a>, and Islamabad has its own hubs such as <a href="home-tutors-dha-islamabad.html">DHA Islamabad home tutors</a>.</p>
+    <h3>Practical tips when you contact us</h3>
+    <ul>
+      <li>Write the exact board or exam (e.g. Cambridge O Level Physics, Federal Board FSc).</li>
+      <li>Mention preferred days, home or online, and any weak topics.</li>
+      <li>Use the subject cards above or an area link that matches where you live.</li>
+    </ul>
+    <p>This approach helps search engines understand each page and helps you reach the conversation that matches your real need—not a keyword-stuffed doorway page.</p>
+  </article>
 
-<!-- PRE-FOOTER: loaded from shared pre-footer.js – edit that file to update all pages -->
+  <div class="cta-section">
+    <h2>Ready to request a tutor?</h2>
+    <p>Share city, area, grade and subjects on WhatsApp. We will discuss options for home or online support.</p>
+    <a class="cta-button" href="https://wa.me/923119696807?text=Hello%20Pak%20Home%20Tutors%2C%20I%20need%20a%20tutor" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    <a class="cta-button secondary" href="mailto:info@pakhometutors.com">Email Us</a>
+  </div>
+</main>
+
 <div id="pre-footer-placeholder"></div>
 <script src="pre-footer.js" defer></script>
 
-    <footer>
-        <div class="social-links">
-            <a href="https://www.facebook.com/pakhometutors" class="facebook" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.youtube.com/@pakhometutors" class="youtube" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.instagram.com/pakhometutors" class="instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@pakhometutors" class="tiktok" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        </div>
-        <p class="copyright">&copy; 2024–2026 Pak Home Tutors. All rights reserved.</p>
-    </footer>
+<footer>
+  <div class="social-links">
+    <a href="https://www.facebook.com/pakhometutors" class="facebook" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.youtube.com/@pakhometutors" class="youtube" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://www.instagram.com/pakhometutors" class="instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@pakhometutors" class="tiktok" target="_blank" rel="noopener" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+  </div>
+  <p class="copyright">&copy; 2024–2026 Pak Home Tutors. All rights reserved.</p>
+</footer>
 
-    <script>
-        function searchTutor() {
-            var city = document.getElementById("city").value;
-            var area = document.getElementById("area").value.trim();
-            var grade = document.getElementById("grade").value;
-            var subject = document.getElementById("subject").value.trim();
-            var areaText = area ? area : "Not specified";
-            var subjectText = subject ? subject : "General Subjects";
-            var message = "Hello Pak Home Tutors! I am looking for a tutor.%0A%0A" +
-                          "📍 *City:* " + encodeURIComponent(city) + "%0A" +
-                          "🏠 *Area:* " + encodeURIComponent(areaText) + "%0A" +
-                          "📚 *Grade:* " + encodeURIComponent(grade) + "%0A" +
-                          "📖 *Subject(s):* " + encodeURIComponent(subjectText);
-            var whatsappUrl = "https://wa.me/923119696807?text=" + message;
-            window.open(whatsappUrl, "_blank");
-        }
-    </script>
-
-    <script src="header.js" defer></script>
+<script>
+function searchTutor() {
+  var city = document.getElementById("city").value;
+  var area = document.getElementById("area").value.trim();
+  var grade = document.getElementById("grade").value;
+  var subject = document.getElementById("subject").value.trim();
+  var areaText = area ? area : "Not specified";
+  var subjectText = subject ? subject : "General Subjects";
+  var message = "Hello Pak Home Tutors! I am looking for a tutor.%0A%0A" +
+    "📍 *City:* " + encodeURIComponent(city) + "%0A" +
+    "🏠 *Area:* " + encodeURIComponent(areaText) + "%0A" +
+    "📚 *Grade:* " + encodeURIComponent(grade) + "%0A" +
+    "📖 *Subject(s):* " + encodeURIComponent(subjectText);
+  window.open("https://wa.me/923119696807?text=" + message, "_blank");
+}
+</script>
+<script src="header.js" defer></script>
 </body>
 </html>

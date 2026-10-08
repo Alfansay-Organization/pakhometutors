@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pakhometutors.com/sitemap.xml
